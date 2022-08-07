@@ -42,6 +42,11 @@ export default function AppMenu({ setPredicate }: Props) {
                 >
                     24Low per
                 </MenuItem>
+                <MenuItem
+                    onClick={() => setPredicate("")}
+                >
+                    Market Rank
+                </MenuItem>
             </Menu>
         </>
 

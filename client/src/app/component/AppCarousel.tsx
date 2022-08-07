@@ -14,6 +14,7 @@ export default observer(function AppCarousel() {
     const { coinStore } = useStore()
     const { trending, getTrendingCoins } = coinStore
     const history = useHistory();
+
     useEffect(() => {
         getTrendingCoins();
     }, [])

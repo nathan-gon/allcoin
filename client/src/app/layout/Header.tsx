@@ -2,7 +2,6 @@ import { Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
 import AppCarousel from "../component/AppCarousel";
-import banner from './banner.jpg'
 
 
 

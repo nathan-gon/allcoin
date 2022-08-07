@@ -77,8 +77,6 @@ namespace API.Controllers
 
         }
 
-
-
         [HttpGet("detail/{id}")]
         public async Task<ActionResult<PagedList<Coin>>> Detail(string id)
         {
@@ -99,8 +97,23 @@ namespace API.Controllers
                 MarketDataCurrentPrice = json.market_data.current_price.usd,
                 MarketDataMarketCap = json.market_data.market_cap.usd,
             };
-
             return Ok(singCoin);
+        }
+
+        [HttpGet("chart")]
+        public async Task<IActionResult> GetChart(string id = "bitcoin", string days = "1")
+        {
+
+            var lists = await _httpClient.GetAsync($"https://api.coingecko.com/api/v3/coins/{id}/market_chart?vs_currency=usd&days={days}");
+
+            var content = await lists.Content.ReadAsStringAsync();
+
+            var json = JsonConvert.DeserializeObject<ChartDto>(content);
+
+
+            if (json == null) return NotFound(new ProblemDetails { Title = "there is no chart data" });
+
+            return Ok(json.Prices);
 
         }
 

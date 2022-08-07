@@ -1,9 +1,10 @@
 import { Container, Box, TextField, Grid } from "@mui/material";
 import { observer } from "mobx-react-lite";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CoinList from "../../features/coin/CoinList";
 import AppMenu from "../component/AppMenu";
 import AppPagination from "../component/AppPagination";
+import LoadingComponent from "../component/LoadingComponent";
 import { useStore } from "../mobx/store";
 import { CoinPaigingParams } from "../model/coin";
 import Header from "./Header";
@@ -14,12 +15,14 @@ export default observer(function Home() {
     const { coins, getCoins, metaData,
         setCoinPagingParams, coinPaigingParams,
         setPredicate, predicate, setSearchTerm, searchTerm
-
     } = coinStore
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         getCoins()
-
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
     }, [coinPaigingParams, predicate, searchTerm])
 
 
@@ -34,12 +37,12 @@ export default observer(function Home() {
     }
 
 
-    // const filteredCoins = allCoins.filter(coin =>
-    //     coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    if (loading) return <LoadingComponent message="Loading Coins wait a moment please" />
+
 
     return (
         <>
-            <Header />
+
             <Container sx={{
                 display: 'flex', justifyContent: 'center'
                 , flexDirection: 'column', width: '75%'

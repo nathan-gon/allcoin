@@ -6,18 +6,14 @@ axios.defaults.baseURL = 'https://localhost:7148/api/'
 
 axios.defaults.withCredentials = true;
 
-
 axios.interceptors.response.use(response => {
     const pagination = response.headers['pagination']
     if (pagination) {
         response.data = new PaginatedResponse(response.data, JSON.parse(pagination))
-        console.log(response);;
         return response;
     }
-
     return response;
 })
-
 
 const responseBody = (response: AxiosResponse) => response.data;
 
@@ -32,10 +28,9 @@ const Coins = {
     List: (params?: URLSearchParams) => request.get('coin/list', params),
     allCoins: () => request.get('coin/all'),
     trending: () => request.get('coin/trending'),
+    chart: (params?: URLSearchParams) => request.get('coin/chart', params)
 
 }
-
-
 
 
 const httpClient = {
