@@ -19,11 +19,11 @@ export default observer(function CoinList({ coins }: Props) {
                     <TableHead
                         sx={{ backgroundColor: 'ButtonShadow' }}>
                         <TableRow>
-                            <TableCell align="center">Coin</TableCell>
-                            <TableCell align="right">Price</TableCell>
-                            <TableCell align="right">24 Change</TableCell>
-                            <TableCell align="right">Market Cap</TableCell>
-                            <TableCell align="right">High in 24h</TableCell>
+                            <TableCell sx={{ width: '20%' }} align="center">Coin</TableCell>
+                            <TableCell sx={{ width: '20%' }} align="center">Price</TableCell>
+                            <TableCell sx={{ width: '20%' }} align="center">24h Change</TableCell>
+                            <TableCell sx={{ width: '20%' }} align="center">Market Cap</TableCell>
+                            <TableCell sx={{ width: '20%' }} align="center">24h High %</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

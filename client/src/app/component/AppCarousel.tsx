@@ -6,9 +6,6 @@ import { Box } from '@mui/system';
 import { round } from '../helper/helper';
 import { useHistory } from 'react-router-dom';
 
-
-
-
 export default observer(function AppCarousel() {
 
     const { coinStore } = useStore()
@@ -17,7 +14,7 @@ export default observer(function AppCarousel() {
 
     useEffect(() => {
         getTrendingCoins();
-    }, [])
+    }, [getTrendingCoins])
 
 
     const items = trending.map((coin) => {
