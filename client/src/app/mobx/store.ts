@@ -2,19 +2,16 @@
 import { createContext, useContext } from "react";
 import CoinStore from "./coinStore";
 
-
-
 interface Store {
-    coinStore: CoinStore;
-}
+  coinStore: CoinStore;
+};
 
 export const store: Store = {
-    coinStore: new CoinStore()
-
-}
+  coinStore: new CoinStore()
+};
 
 export const StoreContext = createContext(store);
 
-export function useStore() {
-    return useContext(StoreContext);
-}
+export const useStore = () => {
+  return useContext(StoreContext);
+};

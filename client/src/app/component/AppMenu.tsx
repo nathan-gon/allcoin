@@ -24,7 +24,7 @@ export default function AppMenu({ setPredicate }: Props) {
             <Button
                 onClick={handleClick}
                 variant='contained' >
-                fliter
+                Filter
             </Button>
             <Menu
                 anchorEl={anchorEl}
@@ -35,17 +35,17 @@ export default function AppMenu({ setPredicate }: Props) {
                 <MenuItem
                     onClick={() => setPredicate("24HighPer_highToLow")}
                 >
-                    24High Per
+                    24h High %
                 </MenuItem>
                 <MenuItem
                     onClick={() => setPredicate("24HighPer_lowToHigh")}
                 >
-                    24Low per
+                    24h Low %
                 </MenuItem>
                 <MenuItem
                     onClick={() => setPredicate("")}
                 >
-                    Market Rank
+                    Market Cap
                 </MenuItem>
             </Menu>
         </>

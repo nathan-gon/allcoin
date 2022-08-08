@@ -6,20 +6,15 @@ import Home from "./Home";
 
 
 
-export default function App() {
+ const App = () => (
+  <>
+    <Header />
+    <Switch>
+      <Route exact path='/' component={Home} />
+      <Route exact path='/single/:id' component={CoinDetail} />
+      <Route exact path='/playground' component={Playground} />
+    </Switch>
+  </>
+);
 
-  return (
-    <>
-      <Header />
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/single/:id' component={CoinDetail} />
-        <Route exact path='/playground' component={Playground} />
-      </Switch>
-    </>
-
-
-  );
-}
-
-
+export default App;
