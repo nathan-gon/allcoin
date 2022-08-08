@@ -1,4 +1,5 @@
 import React from 'react';
+import { createBrowserHistory } from 'history';
 import ReactDOM from 'react-dom/client';
 import { Router } from 'react-router-dom';
 import App from './app/layout/App';
@@ -6,9 +7,8 @@ import { store, StoreContext } from './app/mobx/store';
 import './index.css';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserHistory } from 'history';
 
-const history = createBrowserHistory()
+const history = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -17,9 +17,9 @@ root.render(
     <React.StrictMode>
       <StoreContext.Provider value={store}>
         <App />
-      </StoreContext.Provider >
+      </StoreContext.Provider>
     </React.StrictMode>
-  </Router>
+  </Router>,
 );
 
 // If you want to start measuring performance in your app, pass a function

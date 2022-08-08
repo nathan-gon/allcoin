@@ -27,7 +27,6 @@ export interface Coin {
     last_updated: string
 }
 
-
 export interface SingleCoin {
     image: string
     name: string
@@ -37,54 +36,43 @@ export interface SingleCoin {
     marketDataMarketCap: number
 }
 
-
-// export interface Chart {
-//     prices: number[][]
-// }
-
-
-
 export const chartDays = [
-    {
-        label: "24 Hours",
-        value: '1',
-    },
-    {
-        label: "30 Days",
-        value: '30',
-    },
-    {
-        label: "3 Months",
-        value: '90',
-    },
-    {
-        label: "1 Year",
-        value: '365',
-    },
+  {
+    label: '24 Hours',
+    value: '1',
+  },
+  {
+    label: '30 Days',
+    value: '30',
+  },
+  {
+    label: '3 Months',
+    value: '90',
+  },
+  {
+    label: '1 Year',
+    value: '365',
+  },
 ];
 
-
-
 export class CoinPaigingParams {
-    pageNumber: number;
-    pageSize: number;
+  pageNumber: number;
 
-    constructor(pageNumber = 1, pageSize = 10) {
+  pageSize: number;
 
-        this.pageNumber = pageNumber;
-        this.pageSize = pageSize;
-
-    }
-
+  constructor(pageNumber = 1, pageSize = 10) {
+    this.pageNumber = pageNumber;
+    this.pageSize = pageSize;
+  }
 }
 
-
 export class ChartParmas {
-    id: string;
-    days: string;
+  id: string;
 
-    constructor(id = "bitcoin", days = "1") {
-        this.id = id;
-        this.days = days;
-    }
+  days: string;
+
+  constructor(id = 'bitcoin', days = '1') {
+    this.id = id;
+    this.days = days;
+  }
 }
