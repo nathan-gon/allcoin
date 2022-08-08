@@ -1,17 +1,15 @@
-import DOMPurify from "dompurify"
-
+import DOMPurify from 'dompurify';
 
 const Playground = () => {
-    const script = `<div>Playground</div>`
+  const script = '<div>Playground</div>';
 
+  return (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: DOMPurify.sanitize(script),
+      }}
+    />
+  );
+};
 
-    return (
-        <div
-            dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(script)
-            }}
-        ></div>
-    )
-}
-
-export default Playground
+export default Playground;
